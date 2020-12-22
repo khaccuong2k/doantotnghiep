@@ -32,6 +32,9 @@ Route::post('register','RegisterController@postRegister')->name('register');
 Route::get('login','LoginController@login')->name('login');
 Route::post('login','LoginController@postLogin')->name('login');
 
+// logout
+Route::get('logout','LogoutController@logout')->name('logout');
+
 
 Route::get('forgot-admin',function(){ return view('admin.forgot'); });
 
