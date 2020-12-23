@@ -39,6 +39,7 @@ class EventController extends Controller
             'name' => $req->name,
             'des' => $req->des,
             'img' => $fileExtension,
+            'date' => $req->date,
             'address' => $req->address
         ];
 

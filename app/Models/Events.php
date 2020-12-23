@@ -13,5 +13,6 @@ class Events extends Model
         'des',
         'img',
         'address',
+        'date',
     ];
 }
