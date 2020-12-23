@@ -48,10 +48,6 @@ Route::post('login','LoginController@postLogin')->name('login');
 
 // logout
 Route::get('logout','LogoutController@logout')->name('logout');
-<<<<<<< HEAD
-
-=======
->>>>>>> day22/12
 
 Route::get('forgot-admin',function(){ return view('admin.forgot'); });
 
