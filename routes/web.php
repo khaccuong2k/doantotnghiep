@@ -21,6 +21,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('contact',function(){
+    return view('page.contact');
+})->name('contact');
+
+Route::get('about',function(){
+    return view('page.about');
+})->name('about');
+
+Route::get('rank',function(){
+    return view('page.rank');
+})->name('rank');
+
+Route::get('event','page\ContactController@view')->name('event');
+
 // home
 Route::get('index', 'page\HomeController@view')->name('index');
 
@@ -34,7 +48,10 @@ Route::post('login','LoginController@postLogin')->name('login');
 
 // logout
 Route::get('logout','LogoutController@logout')->name('logout');
+<<<<<<< HEAD
 
+=======
+>>>>>>> day22/12
 
 Route::get('forgot-admin',function(){ return view('admin.forgot'); });
 
