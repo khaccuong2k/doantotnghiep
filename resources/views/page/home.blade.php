@@ -6,12 +6,12 @@
 			<div class="col-lg-6 col-md-12 col-xl-7">
 				<div class="block">
 					<div class="divider mb-3"></div>
-					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
-					<h1 class="mb-3 mt-3">Your most trusted health partner</h1>
-					
-					<p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p>
+					<span class="text-uppercase text-sm letter-spacing ">Event Music Hot 2020</span>
+					{{-- <h1 class="mb-3 mt-3" hidden>Your most trusted health partner</h1> --}}
+					<br><br>
+					{{-- <p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p> --}}
 					<div class="btn-container ">
-						<a href="appoinment.html" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
+						<a href="{{route('booking')}}" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
 					</div>
 				</div>
 			</div>
@@ -23,26 +23,28 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="feature-block d-lg-flex">
+					@foreach ($event as $item)
 					<div class="feature-item mb-5 mb-lg-0">
 						<div class="feature-icon mb-4">
 							<i class="icofont-surgeon-alt"></i>
 						</div>
-						<span>24 Hours Service</span>
-						<h4 class="mb-3">Online Appoinment</h4>
-						<p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
-						<a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a>
+						<span>Address :</span>
+						<h4 class="mb-3">{{$item->address}}</h4>
+						<p class="mb-4">{{$item->des}}</p>
+						
 					</div>
 				
 					<div class="feature-item mb-5 mb-lg-0">
 						<div class="feature-icon mb-4">
 							<i class="icofont-ui-clock"></i>
 						</div>
-						<span>Timing schedule</span>
-						<h4 class="mb-3">Working Hours</h4>
+						<span>Time :</span>
+						<h4 class="mb-3">{{$item->date}}</h4>
 						<ul class="w-hours list-unstyled">
-		                    <li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li>
-		                    <li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
-		                    <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
+							<a href="{{route('booking')}}" class="btn btn-main btn-round-full">Make a appoinment</a>
+		                    {{-- <li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li> --}}
+		                    {{-- <li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
+		                    <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li> --}}
 		                </ul>
 					</div>
 				
@@ -50,18 +52,20 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-support"></i>
 						</div>
-						<span>Emegency Cases</span>
-						<h4 class="mb-3">1-800-700-6200</h4>
-						<p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p>
+						<span>The presence of :</span>
+						<h4 class="mb-3">Singers :</h4>
+						<p>{{$item->singers}}</p>
+						{{-- <p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p> --}}
 					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+<br><br><br><br><br><br><br><br>
 
-
-<section class="section about">
+{{-- <section class="section about">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-4 col-sm-6">
@@ -85,66 +89,25 @@
 			</div>
 		</div>
 	</div>
-</section>
-<section class="cta-section ">
-	<div class="container">
-		<div class="cta position-relative">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-doctor"></i>
-						<span class="h3">58</span>k
-						<p>Happy People</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-flag"></i>
-						<span class="h3">700</span>+
-						<p>Surgery Comepleted</p>
-					</div>
-				</div>
-				
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-badge"></i>
-						<span class="h3">40</span>+
-						<p>Expert Doctors</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-globe"></i>
-						<span class="h3">20</span>
-						<p>Worldwide Branch</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+</section> --}}
+
 <section class="section service gray-bg">
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<div class="section-title">
-					<h2>Award winning patient care</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
-				</div>
-			</div>
-		</div>
-
-		<h1 style="margin-left: 100px"><a href="">Nhac Tre <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		{{-- goi y cho hom nay --}}
+		<h1 style="margin-left: 100px"><a href="">Gợi Ý Cho Hôm Nay <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 		<div class="row">
-			@foreach ($song as $item)
+			@foreach ($songRandum as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="service-item mb-4" style="height: 380px !important">
 						<div class="content">
-							<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="250px" alt="">
+							<a href="{{route('detail-song',$item->id)}}">
+								<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="250px" alt="">
+							</a>
 						</div>
 						<div style="text-align:center;margin-top:20px">
-							<h4>{{$item->name}}</h4>
+							<a href="{{route('detail-song',$item->id)}}">
+								<h4>{{$item->name}}</h4>
+							</a>
 							@foreach ($singer as $itemm)
 								@if ($item->id_singer == $itemm->id)
 									<h5>Ca Sĩ : {{$itemm->name}}</h5>
@@ -156,16 +119,125 @@
 			@endforeach
 		</div>
 		<br><br><br>
-		<h1 style="margin-left: 100px"><a href="">Nhac HipHop <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </h1>
+		{{-- new --}}
+		<h1 style="margin-left: 100px"><a href="">Bài Hát Mới <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<div class="row">
+			@foreach ($newSong as $item)
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="service-item mb-4" style="height: 380px !important">
+						<div class="content">
+							<a href="{{route('detail-song',$item->id)}}">
+								<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="250px" alt="">
+							</a>
+						</div>
+						<div style="text-align:center;margin-top:20px">
+							<a href="{{route('detail-song',$item->id)}}">
+								<h4>{{$item->name}}</h4>
+							</a>
+							@foreach ($singer as $itemm)
+								@if ($item->id_singer == $itemm->id)
+									<h5>Ca Sĩ : {{$itemm->name}}</h5>
+								@endif
+							@endforeach
+						</div>
+					</div>
+				</div>
+			@endforeach
+		</div>
+		<br><br><br>
+		{{-- nhac cach mang --}}
+		<h1 style="margin-left: 100px"><a href="">Nhạc Cách Mạng <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<div class="row">
+			@foreach ($cmSong as $item)
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="service-item mb-4" style="height: 380px !important">
+						<div class="content">
+							<a href="{{route('detail-song',$item->id)}}">
+								<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="250px" alt="">
+							</a>
+						</div>
+						<div style="text-align:center;margin-top:20px">
+							<a href="{{route('detail-song',$item->id)}}">
+								<h4>{{$item->name}}</h4>
+							</a>
+							@foreach ($singer as $itemm)
+								@if ($item->id_singer == $itemm->id)
+									<h5>Ca Sĩ : {{$itemm->name}}</h5>
+								@endif
+							@endforeach
+						</div>
+					</div>
+				</div>
+			@endforeach
+		</div>
+		<br><br><br>
+		{{-- bolero --}}
+		<h1 style="margin-left: 100px"><a href="">Bolero <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 		<div class="row">
 			@foreach ($song1 as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="service-item mb-4" style="height: 380px !important">
+						<div class="content">
+							<a href="{{route('detail-song',$item->id)}}">
+								<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="250px" alt="">
+							</a>
+							</div>
+						<div style="text-align:center;margin-top:20px">
+							<a href="{{route('detail-song',$item->id)}}">
+								<h4>{{$item->name}}</h4>
+							</a>
+							@foreach ($singer as $itemm)
+								@if ($item->id_singer == $itemm->id)
+									<h5>Ca Sĩ : {{$itemm->name}}</h5>
+								@endif
+							@endforeach
+						</div>
+					</div>
+				</div>
+			@endforeach
+		</div>
+		<br><br><br>
+		{{-- nhac tre  --}}
+		<h1 style="margin-left: 100px"><a href="">Nhạc Trẻ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<div class="row">
+			@foreach ($song as $item)
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="service-item mb-4" style="height: 380px !important">
+						<div class="content">
+							<a href="{{route('detail-song',$item->id)}}">
+								<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="250px" alt="">
+							</a>
+							</div>
+						<div style="text-align:center;margin-top:20px">
+							<a href="{{route('detail-song',$item->id)}}">
+								<h4>{{$item->name}}</h4>
+							</a>
+							@foreach ($singer as $itemm)
+								@if ($item->id_singer == $itemm->id)
+									<h5>Ca Sĩ : {{$itemm->name}}</h5>
+								@endif
+							@endforeach
+						</div>
+					</div>
+				</div>
+			@endforeach
+		</div>
+		<br><br><br>
+		{{-- hiphop  --}}
+		<h1 style="margin-left: 100px"><a href="">Hiphop Never Die <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </h1>
+		<div class="row">
+			@foreach ($hiphopSong as $item)
+				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="service-item mb-4">
 						<div class="content">
-							<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="300px" alt="">
+							<a href="{{route('detail-song',$item->id)}}">
+								<img src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100%" height="300px" alt="">
+							</a>
 						</div>
 						<div style="text-align:center;margin-top:20px">
-							<h4>{{$item->name}}</h4>
+							<a href="{{route('detail-song',$item->id)}}">
+								<h4>{{$item->name}}</h4>
+							</a>
 							@foreach ($singer as $itemm)
 								@if ($item->id_singer == $itemm->id)
 									<h5>Ca Sĩ : {{$itemm->name}}</h5>
@@ -237,9 +309,10 @@
 				</div>
 			</div> --}}
 		</div>
+		<br><br><br>
 	</div>
 </section>
-<section class="section appoinment">
+{{-- <section class="section appoinment">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
@@ -318,7 +391,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 <section class="section testimonial-2 gray-bg">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -415,7 +488,62 @@
 			</div>
 		</div>
 	</div>
+	
 </section>
+<section class="cta-section ">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<h2>System Overview</h2>
+					<div class="divider mx-auto my-4"></div>
+					{{-- <p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p> --}}
+				</div>
+			</div>
+		</div>
+		<div class="cta position-relative">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-meetme"></i>
+						<span class="h3">
+								{{$countSong}}
+						</span>
+						<p>Songs</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-navigation-menu"></i>
+						<span class="h3">
+							{{$countType}}
+						</span>
+						<p>Categories</p>
+					</div>
+				</div>
+				
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-doctor"></i>
+						<span class="h3">
+							{{$countUser}}	
+						</span>
+						<p>Member</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-world"></i>
+						<span class="h3">
+							{{$countCountry}}
+						</span>
+						<p>Countries</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><br><br><br><br><br>
 <section class="section clients">
 	<div class="container">
 		<div class="row justify-content-center">
