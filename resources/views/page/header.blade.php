@@ -10,14 +10,18 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="{{route('login')}}" >
-							<span>Login</span>
-						</a>&emsp;
+						
 						@if (Auth::check())
+						<a href="{{route('profile')}}" >
+							<span>{{Auth::user()->username}}&ensp;<i class="fa fa-credit-card" aria-hidden="true"></i></span>
+						</a>&emsp;
 						<a href="{{route('logout')}}" >
 							<span>Logout</span>
 						</a>
 						@else
+						<a href="{{route('login')}}" >
+							<span>Login</span>
+						</a>&emsp;
 						<a href="{{route('register')}}" >
 							<span>Register</span>
 						</a>
@@ -46,7 +50,7 @@
 			  <li class="nav-item"><a class="nav-link" href="{{route('rank')}}">Rank</a></li>
 			  
 			  <li class="nav-item dropdown">
-				  <a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
+				  <a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories <i class="icofont-thin-down"></i></a>
 				  <ul class="dropdown-menu" aria-labelledby="dropdown02">
 					  <li><a class="dropdown-item" href="department.html">Departments</a></li>
 					  <li><a class="dropdown-item" href="department-single.html">Department Single</a></li>

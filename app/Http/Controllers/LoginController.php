@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Users;
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+    use Authenticatable;
     public function login()
     {
         // dd(Auth::user());
@@ -45,5 +49,36 @@ class LoginController extends Controller
                 return redirect()->back()->with('messagee','Đăng nhập thất bại');
             }
         }
+    }
+
+    protected function redirectToProvider() {
+        return Socialite::driver('google')->redirect();
+    }
+
+    protected function handlerProviderCallback() {
+        try {
+            $user = Socialite::driver('google')->user();
+        } catch(\Exception $e) {
+            return redirect()->route('index');
+        }
+
+        if(explode("@",$user->email)[1] !== "gmail.com") {
+            return redirect()->route('index');
+        }
+
+        $existingUser = Users::where('email',$user->mail)->first();
+
+        if($existingUser) {
+            auth()->login($existingUser,true);
+        } else {
+            $newUser = new Users();
+            // $newUser->username = $user->name;
+            $newUser->email = $user->email;
+            $newUser->password = bcrypt($user->password);
+            $newUser->google_id = $user->id;
+            $newUser->save();
+            auth()->login($newUser,true);
+        }
+        return redirect()->route('dashboard');
     }
 }

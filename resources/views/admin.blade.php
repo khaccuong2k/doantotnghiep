@@ -256,11 +256,8 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
 
-<<<<<<< HEAD
                             <a class="nav-link" href="{{route('logout')}}"><i class="fa fa-power-off"></i>Đăng Xuất</a>
-=======
-                            <a class="nav-link" href="{{route('logout')}}"><i class="fa fa-power-off"></i>Logout</a>
->>>>>>> day22/12
+
                         </div>
                     </div>
                 </div>

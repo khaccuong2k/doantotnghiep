@@ -7,11 +7,11 @@
 
   <title>Novena- Health & Care Medical template</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-
+  
   <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{asset('novena/plugins/bootstrap/css/bootstrap.min.css')}}">
   <!-- Icon Font Css -->
   <link rel="stylesheet" href="{{asset('novena/plugins/icofont/icofont.min.css')}}">

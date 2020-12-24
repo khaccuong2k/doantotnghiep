@@ -34,6 +34,9 @@ Route::get('rank',function(){
 })->name('rank');
 
 Route::get('event','page\ContactController@view')->name('event');
+Route::get('profile','page\ProfileController@view')->name('profile');
+Route::get('bookEvent','page\BookeventController@view')->name('booking');
+Route::get('detailSong/{id}','page\DetailsongController@view')->name('detail-song');
 
 // home
 Route::get('index', 'page\HomeController@view')->name('index');
@@ -43,8 +46,11 @@ Route::get('register','RegisterController@register')->name('register');
 Route::post('register','RegisterController@postRegister')->name('register');
 
 // login
-Route::get('login','LoginController@login')->name('login');
-Route::post('login','LoginController@postLogin')->name('login');
+Route::get('/login','LoginController@login')->name('login');
+Route::post('/login','LoginController@postLogin')->name('login');
+
+Route::get('login/redirect','LoginController@redirectToProvider')->name('redirect');
+Route::get('login/callbach','LoginController@handlerProviderCallback')->name('callbach');
 
 // logout
 Route::get('logout','LogoutController@logout')->name('logout');
