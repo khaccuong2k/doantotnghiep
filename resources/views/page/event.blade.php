@@ -32,7 +32,7 @@
                             <h4 class="mt-4 mb-2 title-color">{{$item->name}}</h4>
                             <p class="mb-4">{{$item->des}}</p>
                             {{-- <a href="booking" class="read-more">Đặt Vé  <i class="icofont-simple-right ml-2"></i></a> --}}
-                            <a href="{{route('booking')}}" class="btn btn-main-2 btn-round-full">Đặt Vé<i class="icofont-simple-right  ml-2"></i></a>
+                            <a href="{{route('booking',$item->id)}}" class="btn btn-main-2 btn-round-full">Đặt Vé<i class="icofont-simple-right  ml-2"></i></a>
                         </div>
                     </div>
                 </div>

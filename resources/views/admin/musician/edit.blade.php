@@ -50,7 +50,8 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                    <div class="col-12 col-md-9"><textarea name="des_edit" id="textarea-input" rows="9" value="{{$aa->des}}"  class="form-control"></textarea></div>
+                    {{-- <div class="col-12 col-md-9"><textarea name="des_edit" id="textarea-input" rows="9" value="{{$aa->des}}"  class="form-control"></textarea></div> --}}
+                    <div class="col-12 col-md-9"><div id="summernote" name="des_edit"></div></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh đại diện</label></div>

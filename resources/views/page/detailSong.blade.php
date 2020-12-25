@@ -47,9 +47,10 @@
                         <h2 class="text-md">{{$item->name}}</h2>
                         @foreach ($singer as $itemm)
                           @if ($itemm->id == $item->id_singer)
-                              <p>{{$itemm->name}}</p>
-                          @endif
-                        @endforeach
+                              <p>Ca sĩ : {{$itemm->name}}</p>
+                              @endif
+                              @endforeach
+                              <p>Lượt nghe : {{$item->views}}</p>
                         <div class="divider my-4"></div>
                         <audio controls>
                             <source src="{{asset('upload/file')}}/{{$item->file}}" type="audio/ogg">
