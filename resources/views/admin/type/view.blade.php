@@ -32,6 +32,11 @@
                     {{-- <strong class="card-title">Custom Table</strong> --}}
                 </div>
                 <div class="table-stats order-table ov-h">
+                    <a href="{{ route('add-type') }}">
+                        <button class="btn btn-primary btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#myModalCountry" title="Add">
+                            Thêm Thể Loại <i class="fa fa-plus-square"></i>
+                        </button>
+                    </a>
                     <table class="table ">
                         <thead>
                             <tr>
@@ -50,11 +55,7 @@
                                     </td>
                                     <td><span>{{ $item->name }}</span> </td>
                                     <td>
-                                        <a href="{{ route('add-type') }}">
-                                            <button class="btn btn-primary btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#myModalCountry" title="Add">
-                                                <i class="fa fa-plus-square"></i>
-                                            </button>
-                                        </a>
+                                        
                                         <a href="{{ route('edit-type',[ $item->id ]) }}">
                                             <button class="btn btn-success btn-sm rounded-0 edit_country" type="button" data-id="" data-toggle="modal" data-target="#myModalCountry1" data-placement="top" title="Edit">
                                                 <i class="fa fa-edit"></i>

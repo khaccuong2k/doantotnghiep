@@ -65,7 +65,7 @@
         </div>
         <div class="card-footer">
             <div class="row form-group">
-                <input type="submit" class="btn btn-primary">
+                <input type="submit" value="Sửa ca sĩ" class="btn btn-primary">
             </div>
         </div>  
         </form>

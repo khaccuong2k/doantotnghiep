@@ -63,7 +63,7 @@
         <div class="card-footer">
             <div class="form-group">
               <label for=""></label>
-              <input type="submit"
+              <input type="submit" value="Thêm ca sĩ"
                 class="btn btn-primary">
             </div>
         </div>

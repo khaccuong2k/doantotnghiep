@@ -43,7 +43,6 @@ class CountryController extends Controller
     public function view(Countrys $country)
     {
         $countrys = $country->orderBy('id','desc')->get();
-        // dd($countrys);
         return view('admin.country.view',compact('countrys'));
     }
 

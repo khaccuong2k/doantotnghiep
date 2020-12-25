@@ -34,7 +34,7 @@
         @csrf
             <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên</label></div>
-                <div class="col-12 col-md-9"><input type="text" id="text-input" name="name" placeholder="Nhập tên sự kiện" class="form-control">
+                <div class="col-12 col-md-9"><input type="text" id="text-input" name="name" placeholder="Nhập tên bài hát" class="form-control">
                     {{-- <small class="form-text text-muted">This is a help text</small> --}}
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 <div class="col-12 col-md-9">
                     <select name="id_album" id="select" class="form-control">
                     @foreach ($album as $itemt)
-                        <option value="1">aa</option>
+                        <option value="">aa</option>
                     @endforeach
                     </select>
                 </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá tiền</label></div>
-                <div class="col-12 col-md-9"><input type="text" id="text-input" name="price" placeholder="Nhập địa chỉ" class="form-control">
+                <div class="col-12 col-md-9"><input type="text" id="text-input" name="price" placeholder="Nhập giá tiền" class="form-control">
                     {{-- <small class="form-text text-muted">This is a help text</small> --}}
                 </div>
             </div>
@@ -126,7 +126,7 @@
         <div class="card-footer">
             <div class="form-group">
               <label for=""></label>
-              <input type="submit"
+              <input type="submit" value="Thêm bài hát"
                 class="btn btn-primary">
             </div>
         </div>

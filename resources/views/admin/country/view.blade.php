@@ -32,8 +32,13 @@
                     {{-- <strong class="card-title">Custom Table</strong> --}}
                 </div>
                 <div class="table-stats order-table ov-h">
+                    <a href="{{ route('add-country') }}">
+                        <button class="btn btn-primary btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#myModalCountry" title="Add">
+                            Thêm Quốc Gia <i class="fa fa-plus-square"></i>
+                        </button>
+                    </a>
                     <table class="table ">
-                        <thead>
+                         <thead>
                             <tr>
                                 <th>Hình ảnh</th>
                                 <th>Tên quốc gia</th>
@@ -51,22 +56,17 @@
                                     </a>
                                     </div>
                                 </td>
-                            <td>{{$item->name}}</td>
-                            <td>
-                                <a href="{{ route('add-country') }}">
-                                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#myModalCountry" title="Add">
-                                        <i class="fa fa-plus-square"></i>
+                                <td>{{$item->name}}</td>
+                                <td>
+                                    <a href="{{ route('edit-country',[ $item->id ]) }}">
+                                        <button class="btn btn-success btn-sm rounded-0 edit_country" type="button" data-id="" data-toggle="modal" data-target="#myModalCountry1" data-placement="top" title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                    </a>
+                                    <button class="btn btn-danger btn-sm rounded-0 del_country" data-id="{{ $item->id }}" type="button" data-toggle="modal" data-target="#myModalCountry2" data-placement="top" title="Delete">
+                                        <i class="fa fa-trash"></i>
                                     </button>
-                                </a>
-                                <a href="{{ route('edit-country',[ $item->id ]) }}">
-                                    <button class="btn btn-success btn-sm rounded-0 edit_country" type="button" data-id="" data-toggle="modal" data-target="#myModalCountry1" data-placement="top" title="Edit">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-                                </a>
-                                 <button class="btn btn-danger btn-sm rounded-0 del_country" data-id="{{ $item->id }}" type="button" data-toggle="modal" data-target="#myModalCountry2" data-placement="top" title="Delete">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </td>
+                                </td>
                             </tr>
                             @endforeach
 

@@ -6,8 +6,10 @@
 					<div class="logo mb-4">
 						<img src="{{asset('novena/images/logo.png')}}" alt="" class="img-fluid">
 					</div>
-					<p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
-
+					<p>
+						Giấy phép mạng xã hội: 314/GP-BTTTT do Bộ Thông tin và Truyền thông cấp ngày 17/7/2015 <br>
+Chủ quản: Công Ty Cổ Phần VNG
+					</p>
 					<ul class="list-inline footer-socials mt-4">
 						<li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i class="icofont-facebook"></i></a></li>
 						<li class="list-inline-item"><a href="https://twitter.com/themefisher"><i class="icofont-twitter"></i></a></li>
@@ -18,43 +20,39 @@
 
 			<div class="col-lg-2 col-md-6 col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
-					<h4 class="text-capitalize mb-3">Department</h4>
+					<h4 class="text-capitalize mb-3">Thể Loại</h4>
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Surgery </a></li>
-						<li><a href="#">Wome's Health</a></li>
-						<li><a href="#">Radiology</a></li>
-						<li><a href="#">Cardioc</a></li>
-						<li><a href="#">Medicine</a></li>
+						@foreach ($type as $item)
+							<li><a href="{{route('detail-categories',$item->id)}}">{{$item->name}} </a></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
 
 			<div class="col-lg-2 col-md-6 col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
-					<h4 class="text-capitalize mb-3">Support</h4>
+					<h4 class="text-capitalize mb-3">Quốc Gia</h4>
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Company Support </a></li>
-						<li><a href="#">FAQuestions</a></li>
-						<li><a href="#">Company Licence</a></li>
+						@foreach ($coutries as $item)
+							<li><a href="#">{{$item->name}}</a></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
 
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="widget widget-contact mb-5 mb-lg-0">
-					<h4 class="text-capitalize mb-3">Get in Touch</h4>
+					<h4 class="text-capitalize mb-3">Liên Hệ</h4>
 					<div class="divider mb-4"></div>
 
 					<div class="footer-contact-block mb-4">
 						<div class="icon d-flex align-items-center">
 							<i class="icofont-email mr-3"></i>
-							<span class="h6 mb-0">Support Available for 24/7</span>
+							<span class="h6 mb-0">Hỗ Trợ 24/7</span>
 						</div>
 						<h4 class="mt-2"><a href="tel:+23-345-67890">Support@email.com</a></h4>
 					</div>
@@ -62,7 +60,7 @@
 					<div class="footer-contact-block">
 						<div class="icon d-flex align-items-center">
 							<i class="icofont-support mr-3"></i>
-							<span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
+							<span class="h6 mb-0">Các Ngày Trong Tuần : 08:30 - 18:00</span>
 						</div>
 						<h4 class="mt-2"><a href="tel:+23-345-67890">+23-456-6588</a></h4>
 					</div>

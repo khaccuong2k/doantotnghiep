@@ -26,7 +26,6 @@ class HomeController extends Controller
         $newSong = $songs->orderBy('id','desc')->limit(3)->get();
         $cmSong = $songs->where('id_type',4)->inRandomOrder()->limit(3)->get();
         $hiphopSong = $songs->where('id_type',2)->inRandomOrder()->limit(3)->get();
-        // dd($newSong);
         $song1 = $songs->where('id_type',3)->inRandomOrder()->limit(3)->get();
         $singer = $singers->all();
         return view('page.home',compact('event','song','song1','singer','hiphopSong','newSong','cmSong','songRandum','countUser','countSong','countType','countCountry'));

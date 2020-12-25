@@ -17,26 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
-Route::get('contact',function(){
-    return view('page.contact');
-})->name('contact');
-
-Route::get('about',function(){
-    return view('page.about');
-})->name('about');
-
-Route::get('rank',function(){
-    return view('page.rank');
-})->name('rank');
-
+Route::get('contact',function(){return view('page.contact');})->name('contact');
+Route::get('about',function(){return view('page.about');})->name('about');
+Route::get('rank',function(){return view('page.rank');})->name('rank');
 Route::get('event','page\ContactController@view')->name('event');
+Route::get('detail','page\DetailController@view')->name('detail');
 Route::get('profile','page\ProfileController@view')->name('profile');
 Route::get('bookEvent','page\BookeventController@view')->name('booking');
+Route::post('bookEvent','page\BookeventController@postBooking')->name('booking');
 Route::get('detailSong/{id}','page\DetailsongController@view')->name('detail-song');
+Route::get('detailType/{id}','page\DetailtypeController@view')->name('detail-categories');
 
 // home
 Route::get('index', 'page\HomeController@view')->name('index');

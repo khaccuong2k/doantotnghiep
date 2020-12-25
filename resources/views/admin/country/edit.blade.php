@@ -14,7 +14,7 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
                     <li><a href="#">Trang quản trị</a></li>
-                    <li><a href="#">Người quản trị</a></li>
+                    <li><a href="#">Quốc gia</a></li>
                     <li class="active">Sửa</li>
                 </ol>
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="card-footer">
             <div class="row form-group">
-                <input type="submit" class="btn btn-primary">
+                <input type="submit" value="Sửa quốc gia" class="btn btn-primary">
             </div>
         </div>  
         </form>
