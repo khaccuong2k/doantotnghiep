@@ -50,7 +50,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                    <div class="col-12 col-md-9"><textarea name="des_edit" id="textarea-input" rows="9" placeholder="{{$aa->des}}" value="{{$aa->des}}"  class="form-control"></textarea></div>
+                    <div class="col-12 col-md-9"><textarea name="des_edit" id="textarea-input" rows="9" value="{{$aa->des}}"  class="form-control"></textarea></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh đại diện</label></div>
@@ -65,7 +65,7 @@
         </div>
         <div class="card-footer">
             <div class="row form-group">
-                <input type="submit" class="btn btn-primary">
+                <input type="submit" value="Sửa nhạc sĩ" class="btn btn-primary">
             </div>
         </div>  
         </form>

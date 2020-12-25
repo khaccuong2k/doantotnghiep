@@ -12,4 +12,8 @@ class BookeventController extends Controller
         $event = $events->orderBy('date','desc')->limit(1)->get();
         return view('page.bookEvent',compact('event'));
     }
+
+    protected function postBooking(Request $req) {
+        
+    }
 }

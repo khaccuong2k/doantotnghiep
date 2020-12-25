@@ -1,19 +1,21 @@
 @extends('master')
 @section('contentMaster')
-<section class="banner">
+<section class="banner" style="position: relative;overflow: hidden;background: #fff;background: url('@foreach ($event as $item) {{asset('upload/img/img_event')}}/{{$item->img}} @endforeach') no-repeat;background-size: cover;min-height: 550px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-12 col-xl-7">
-				<div class="block">
-					<div class="divider mb-3"></div>
-					<span class="text-uppercase text-sm letter-spacing ">Event Music Hot 2020</span>
-					{{-- <h1 class="mb-3 mt-3" hidden>Your most trusted health partner</h1> --}}
-					<br><br>
-					{{-- <p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p> --}}
-					<div class="btn-container ">
-						<a href="{{route('booking')}}" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
+				@foreach ($event as $item)
+					<div class="block">
+						<div class="divider mb-3"></div>
+						<span class="text-uppercase text-sm letter-spacing ">{{$item->name}}</span>
+						{{-- <h1 class="mb-3 mt-3" hidden>Your most trusted health partner</h1> --}}
+						<br><br>
+						{{-- <p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p> --}}
+						<div class="btn-container ">
+							<a href="{{route('booking')}}" class="btn btn-main-2 btn-icon btn-round-full">Đặt Vé <i class="icofont-simple-right ml-2  "></i></a>
+						</div>
 					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -28,9 +30,9 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-surgeon-alt"></i>
 						</div>
-						<span>Address :</span>
-						<h4 class="mb-3">{{$item->address}}</h4>
-						<p class="mb-4">{{$item->des}}</p>
+						<span>Địa chỉ :</span>
+						<h4 class="mb-3">{{$item->name}}</h4>
+						<p class="mb-4">{{$item->address}}</p>
 						
 					</div>
 				
@@ -38,10 +40,10 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-ui-clock"></i>
 						</div>
-						<span>Time :</span>
+						<span>Thời gian :</span>
 						<h4 class="mb-3">{{$item->date}}</h4>
 						<ul class="w-hours list-unstyled">
-							<a href="{{route('booking')}}" class="btn btn-main btn-round-full">Make a appoinment</a>
+							<a href="{{route('booking')}}" class="btn btn-main btn-round-full">Đặt Vé</a>
 		                    {{-- <li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li> --}}
 		                    {{-- <li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
 		                    <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li> --}}
@@ -52,8 +54,8 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-support"></i>
 						</div>
-						<span>The presence of :</span>
-						<h4 class="mb-3">Singers :</h4>
+						<span>Với sự góp mặt của :</span>
+						<h4 class="mb-3">Ca sĩ :</h4>
 						<p>{{$item->singers}}</p>
 						{{-- <p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p> --}}
 					</div>
@@ -65,36 +67,10 @@
 </section>
 <br><br><br><br><br><br><br><br>
 
-{{-- <section class="section about">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img">
-					<img src="{{asset('novena/images/about/img-1.jpg')}}" alt="" class="img-fluid">
-					<img src="{{asset('novena/images/about/img-2.jpg')}}" alt="" class="img-fluid mt-4">
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img mt-4 mt-lg-0">
-					<img src="{{asset('novena/images/about/img-3.jpg')}}" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="about-content pl-4 mt-4 mt-lg-0">
-					<h2 class="title-color">Personal care <br>& healthy living</h2>
-					<p class="mt-4 mb-5">We provide best leading medicle service Nulla perferendis veniam deleniti ipsum officia dolores repellat laudantium obcaecati neque.</p>
-
-					<a href="service.html" class="btn btn-main-2 btn-round-full btn-icon">Services<i class="icofont-simple-right ml-3"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> --}}
-
 <section class="section service gray-bg">
 	<div class="container">
 		{{-- goi y cho hom nay --}}
-		<h1 style="margin-left: 100px"><a href="">Gợi Ý Cho Hôm Nay <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<h1 style="margin-left: 100px"><a href="{{route('detail')}}">Gợi Ý Cho Hôm Nay <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 		<div class="row">
 			@foreach ($songRandum as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
@@ -120,7 +96,7 @@
 		</div>
 		<br><br><br>
 		{{-- new --}}
-		<h1 style="margin-left: 100px"><a href="">Bài Hát Mới <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<h1 style="margin-left: 100px"><a href="{{route('detail')}}">Bài Hát Mới <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 		<div class="row">
 			@foreach ($newSong as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
@@ -146,7 +122,7 @@
 		</div>
 		<br><br><br>
 		{{-- nhac cach mang --}}
-		<h1 style="margin-left: 100px"><a href="">Nhạc Cách Mạng <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<h1 style="margin-left: 100px"><a href="{{route('detail')}}">Nhạc Cách Mạng <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 		<div class="row">
 			@foreach ($cmSong as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
@@ -172,7 +148,7 @@
 		</div>
 		<br><br><br>
 		{{-- bolero --}}
-		<h1 style="margin-left: 100px"><a href="">Bolero <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<h1 style="margin-left: 100px"><a href="{{route('detail')}}">Bolero <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 		<div class="row">
 			@foreach ($song1 as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
@@ -198,7 +174,7 @@
 		</div>
 		<br><br><br>
 		{{-- nhac tre  --}}
-		<h1 style="margin-left: 100px"><a href="">Nhạc Trẻ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
+		<h1 style="margin-left: 100px"><a href="{{route('detail')}}">Nhạc Trẻ <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 		<div class="row">
 			@foreach ($song as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
@@ -224,7 +200,7 @@
 		</div>
 		<br><br><br>
 		{{-- hiphop  --}}
-		<h1 style="margin-left: 100px"><a href="">Hiphop Never Die <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </h1>
+		<h1 style="margin-left: 100px"><a href="{{route('detail')}}">Hiphop Never Die <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </h1>
 		<div class="row">
 			@foreach ($hiphopSong as $item)
 				<div class="col-lg-4 col-md-6 col-sm-6">
@@ -247,152 +223,12 @@
 					</div>
 				</div>
 			@endforeach
-			{{-- <div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-heart-beat-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Heart Disease</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-tooth text-lg"></i>
-						<h4 class="mt-3 mb-3">Dental Care</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-crutch text-lg"></i>
-						<h4 class="mt-3 mb-3">Body Surgery</h4>
-					</div>
-
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-brain-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Neurology Sargery</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-dna-alt-1 text-lg"></i>
-						<h4 class="mt-3 mb-3">Gynecology</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div> --}}
 		</div>
 		<br><br><br>
 	</div>
 </section>
-{{-- <section class="section appoinment">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-6 ">
-				<div class="appoinment-content">
-					<img src="{{asset('novena/images/about/img-3.jpg')}}" alt="" class="img-fluid">
-					<div class="emergency">
-						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+23 345 67980</h2>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-10 ">
-				<div class="appoinment-wrap mt-5 mt-lg-0">
-					<h2 class="mb-2 title-color">Book appoinment</h2>
-					<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
-					     <form id="#" class="appoinment-form" method="post" action="#">
-                    <div class="row">
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Choose Department</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect2">
-                                  <option>Select Doctors</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
-                                </select>
-                            </div>
-                        </div>
 
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="time" id="time" type="text" class="form-control" placeholder="Time">
-                            </div>
-                        </div>
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" placeholder="Full Name">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group-2 mb-4">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
-                    </div>
-
-                    <a class="btn btn-main btn-round-full" href="appoinment.html" >Make Appoinment <i class="icofont-simple-right ml-2  "></i></a>
-                </form>
-            </div>
-			</div>
-		</div>
-	</div>
-</section> --}}
-<section class="section testimonial-2 gray-bg">
+{{-- <section class="section testimonial-2 gray-bg">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7">
@@ -490,60 +326,7 @@
 	</div>
 	
 </section>
-<section class="cta-section ">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<div class="section-title">
-					<h2>System Overview</h2>
-					<div class="divider mx-auto my-4"></div>
-					{{-- <p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p> --}}
-				</div>
-			</div>
-		</div>
-		<div class="cta position-relative">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-meetme"></i>
-						<span class="h3">
-								{{$countSong}}
-						</span>
-						<p>Songs</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-navigation-menu"></i>
-						<span class="h3">
-							{{$countType}}
-						</span>
-						<p>Categories</p>
-					</div>
-				</div>
-				
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-doctor"></i>
-						<span class="h3">
-							{{$countUser}}	
-						</span>
-						<p>Member</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-world"></i>
-						<span class="h3">
-							{{$countCountry}}
-						</span>
-						<p>Countries</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section><br><br><br><br><br>
+<br><br><br><br><br>
 <section class="section clients">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -611,5 +394,5 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 @endsection

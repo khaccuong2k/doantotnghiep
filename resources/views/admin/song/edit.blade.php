@@ -15,7 +15,7 @@
                 <ol class="breadcrumb text-right">
                     <li><a href="#">Trang quản trị</a></li>
                     <li><a href="#">Bài hát</a></li>
-                    <li class="active">Thêm</li>
+                    <li class="active">Sửa</li>
                 </ol>
             </div>
         </div>
@@ -36,7 +36,7 @@
             
             <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên</label></div>
-                <div class="col-12 col-md-9"><input type="text" id="text-input" name="nameEdit" placeholder="Nhập tên sự kiện" value="{{ $item->name }}" class="form-control">
+                <div class="col-12 col-md-9"><input type="text" id="text-input" name="nameEdit" placeholder="Nhập tên bài hát" value="{{ $item->name }}" class="form-control">
                     {{-- <small class="form-text text-muted">This is a help text</small> --}}
                 </div>
             </div>
@@ -105,11 +105,11 @@
             </div>
             <div class="row form-group">
                 <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                <div class="col-12 col-md-9"><textarea name="desEdit" id="textarea-input" rows="9" placeholder="{{$item->des}}" class="form-control"></textarea></div>
+                <div class="col-12 col-md-9"><textarea name="desEdit" id="textarea-input" rows="9" class="form-control"></textarea></div>
             </div>
             <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá tiền</label></div>
-                <div class="col-12 col-md-9"><input type="text" id="text-input" name="priceEdit" value="{{$item->price}}" placeholder="Nhập địa chỉ" class="form-control">
+                <div class="col-12 col-md-9"><input type="text" id="text-input" name="priceEdit" value="{{$item->price}}" placeholder="Nhập giá tiền" class="form-control">
                     {{-- <small class="form-text text-muted">This is a help text</small> --}}
                 </div>
             </div>
@@ -132,7 +132,7 @@
         <div class="card-footer">
             <div class="form-group">
               <label for=""></label>
-              <input type="submit"
+              <input type="submit" value="Sửa bài hát"
                 class="btn btn-primary">
             </div>
         </div>

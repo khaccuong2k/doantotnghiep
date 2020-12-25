@@ -32,12 +32,17 @@
                     {{-- <strong class="card-title">Custom Table</strong> --}}
                 </div>
                 <div class="table-stats order-table ov-h">
+                    <a href="{{ route('add-event') }}">
+                        <button class="btn btn-primary btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#myModalCountry" title="Add">
+                            Thêm Sự Kiện <i class="fa fa-plus-square"></i>
+                        </button>
+                    </a>
                     <table class="table ">
                         <thead>
                             <tr>
                                 <th>Hình ảnh</th>
                                 <th>Tên</th>
-                                <th>Mô tả</th>
+                                {{-- <th>Mô tả</th> --}}
                                 <th>Địa chỉ</th>
                                 <th>Hành Động</th>
                             </tr>
@@ -52,13 +57,9 @@
                                     </td>
                                     <td><span>{{ $item->name }}</span> </td>
                                     <td><span>{{ $item->address }}</span> </td>
-                                    <td><span>{{ $item->des }}</span></td>
+                                    {{-- <td><span>{{ $item->des }}</span></td> --}}
                                     <td>
-                                        <a href="{{ route('add-event') }}">
-                                            <button class="btn btn-primary btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#myModalCountry" title="Add">
-                                                <i class="fa fa-plus-square"></i>
-                                            </button>
-                                        </a>
+                                        
                                         <a href="{{ route('edit-event',[ $item->id ]) }}">
                                             <button class="btn btn-success btn-sm rounded-0 edit_country" type="button" data-id="" data-toggle="modal" data-target="#myModalCountry1" data-placement="top" title="Edit">
                                                 <i class="fa fa-edit"></i>
