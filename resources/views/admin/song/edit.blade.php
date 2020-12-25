@@ -105,7 +105,8 @@
             </div>
             <div class="row form-group">
                 <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                <div class="col-12 col-md-9"><textarea name="desEdit" id="textarea-input" rows="9" class="form-control"></textarea></div>
+                {{-- <div class="col-12 col-md-9"><textarea name="desEdit" id="textarea-input" rows="9" class="form-control"></textarea></div> --}}
+                <div class="col-12 col-md-9"><div id="summernote" name="des"></div></div>
             </div>
             <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá tiền</label></div>

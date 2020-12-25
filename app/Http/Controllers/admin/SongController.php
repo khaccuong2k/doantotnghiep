@@ -16,7 +16,7 @@ class SongController extends Controller
 {
     public function view(Songs $songs,Singers $singers)
     {
-        $song = $songs->orderBy('id','desc')->paginate(10);
+        $song = $songs->orderBy('id','desc')->paginate(1);
         $singer = $singers->orderBy('id','desc')->get();
         // dd($singer);
         return view('admin.song.view',compact('song','singer'));

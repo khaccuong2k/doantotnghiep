@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class BookeventController extends Controller
 {
-    protected function view(Events $events) {
-        $event = $events->orderBy('date','desc')->limit(1)->get();
+    protected function view($id,Events $events) {
+        $event = $events->where('id',$id)->get();
         return view('page.bookEvent',compact('event'));
     }
 

@@ -86,7 +86,18 @@
 </div><!-- .animated -->
 @endsection
 @section('scriptt')
+<script src="./assets/simplePagination/jquery.simplePagination.js"></script>
 <script>
+    $(document).ready(function () {
+      $('#light-pagination').pagination({
+        pages: 20,
+        onPageClick(pageNumber, event) {
+          console.log('page', pageNumber);
+
+          window.location.href = 'http://localhost:8000/backend/view-song?page='+ pageNumber;
+        }
+      });
+    });
     $(".del_song").click(function(){
          id = $(this).data('id');
          Swal.fire({

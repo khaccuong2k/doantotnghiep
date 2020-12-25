@@ -19,35 +19,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {return view('welcome');});
 
-Route::get('contact',function(){return view('page.contact');})->name('contact');
-Route::get('about',function(){return view('page.about');})->name('about');
-Route::get('rank',function(){return view('page.rank');})->name('rank');
-Route::get('event','page\ContactController@view')->name('event');
-Route::get('detail','page\DetailController@view')->name('detail');
-Route::get('profile','page\ProfileController@view')->name('profile');
-Route::get('bookEvent','page\BookeventController@view')->name('booking');
-Route::post('bookEvent','page\BookeventController@postBooking')->name('booking');
-Route::get('detailSong/{id}','page\DetailsongController@view')->name('detail-song');
-Route::get('detailType/{id}','page\DetailtypeController@view')->name('detail-categories');
+Route::get('/contact',function(){return view('page.contact');})->name('contact');
+Route::get('/about',function(){return view('page.about');})->name('about');
+Route::get('/rank',function(){return view('page.rank');})->name('rank');
+Route::get('/event','page\ContactController@view')->name('event');
+Route::get('/detail','page\DetailController@view')->name('detail');
+Route::get('/profile','page\ProfileController@view')->name('profile');
+Route::get('/bookEvent/{id}','page\BookeventController@view')->name('booking');
+// Route::post('/bookEvent','page\BookeventController@postBooking')->name('booking');
+Route::get('/detailSong/{id}','page\DetailsongController@view')->name('detail-song');
+Route::get('/detailType/{id}','page\DetailtypeController@view')->name('detail-categories');
 
 // home
-Route::get('index', 'page\HomeController@view')->name('index');
+Route::get('/index', 'page\HomeController@view')->name('index');
 
 // register
-Route::get('register','RegisterController@register')->name('register');
-Route::post('register','RegisterController@postRegister')->name('register');
+Route::get('/register','RegisterController@register')->name('register');
+Route::post('/register','RegisterController@postRegister')->name('register');
 
 // login
 Route::get('/login','LoginController@login')->name('login');
 Route::post('/login','LoginController@postLogin')->name('login');
 
-Route::get('login/redirect','LoginController@redirectToProvider')->name('redirect');
-Route::get('login/callbach','LoginController@handlerProviderCallback')->name('callbach');
+Route::get('/login/redirect','LoginController@redirectToProvider')->name('redirect');
+Route::get('/login/callbach','LoginController@handlerProviderCallback')->name('callbach');
 
 // logout
-Route::get('logout','LogoutController@logout')->name('logout');
+Route::get('/logout','LogoutController@logout')->name('logout');
 
-Route::get('forgot-admin',function(){ return view('admin.forgot'); });
+Route::get('/forgot-admin',function(){ return view('admin.forgot'); });
 
 Route::group(['prefix' => 'backend','middleware' => 'checkLogin'], function(){
 
