@@ -40,7 +40,8 @@ class EventController extends Controller
             'des' => $req->des,
             'img' => $fileExtension,
             'date' => $req->date,
-            'address' => $req->address
+            'address' => $req->address,
+            'price' => $req->price,
         ];
 
         // dd($data);
@@ -92,7 +93,9 @@ class EventController extends Controller
             'name' => $req->name_edit,
             'des' => $req->des_edit,
             'img' => $fileExtension,
-            'address' => $req->address_edit
+            'address' => $req->address_edit,
+            'date' => $req->date,
+            'price' => $req->price
         ];
 
         // dd($data);

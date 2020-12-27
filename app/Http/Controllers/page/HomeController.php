@@ -20,7 +20,7 @@ class HomeController extends Controller
         $countSong = $songs->count();
         $countType = $types->count();
         $countCountry = $countrys->count();
-        $event = $events->orderBy('date','desc')->limit(1)->get();
+        $event = $events->orderBy('id','desc')->limit(1)->get();
         $song = $songs->where('id_type',1)->inRandomOrder()->limit(3)->get();
         $songRandum = $songs->inRandomOrder()->limit(3)->get();
         $newSong = $songs->orderBy('id','desc')->limit(3)->get();

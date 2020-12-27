@@ -35,6 +35,11 @@
   
         <div class="col-lg-8">
              <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+              @if (session('message'))
+                <span class="aler aler-danger">
+                    <strong>{{session('message')}}</strong>
+                </span>
+               @endif
               <h2 class="mb-2 title-color">Đặt vé sự kiện @foreach ($event as $item){{$item->name}}@endforeach</h2>
               <p class="mb-4">@foreach ($event as $item){{$item->des}}@endforeach</p>
                  <form id="#" class="appoinment-form" method="post" action="@foreach ($event as $item){{route('booking',$item->id)}}@endforeach">
@@ -58,7 +63,7 @@
                            <div class="col-lg-6">
                               <div class="form-group">
                                 <label for="name">Giá tiền</label>
-                                  <input name="price" id="name" type="text" class="form-control" placeholder="@foreach ($event as $item){{$item->price}}@endforeach" readonly>
+                                  <input name="price" id="name" type="text" class="form-control" placeholder="@foreach ($event as $item){{number_format($item->price)}}@endforeach vnđ" readonly>
                               </div>
                           </div>
                            <div class="col-lg-6">

@@ -49,6 +49,12 @@
                 </div>
             </div>
             <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá tiền</label></div>
+                <div class="col-12 col-md-9"><input type="text" id="text-input" name="price" placeholder="Nhập giá tiền" class="form-control">
+                    {{-- <small class="form-text text-muted">This is a help text</small> --}}
+                </div>
+            </div>
+            <div class="row form-group">
                 <div class="col col-md-3"><label for="file-input" class=" form-control-label">Hình ảnh</label></div>
                 <div class="col-12 col-md-9">
                     <input type="file" id="" name="img" class="form-control-file">
@@ -57,7 +63,7 @@
             <!-- TODO: This is for server side, there is another version for browser defaults -->
             <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Thời gian</label></div>
-                <div class="col-12 col-md-9"><input type="date" id="text-input" name="date" class="form-control">
+                <div class="col-12 col-md-9"><input type="datetime-local" id="text-input" name="date" class="form-control">
             </div>
         </div>
         <div class="card-footer">
