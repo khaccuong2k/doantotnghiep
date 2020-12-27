@@ -26,7 +26,7 @@ Route::get('/event','page\ContactController@view')->name('event');
 Route::get('/detail','page\DetailController@view')->name('detail');
 Route::get('/profile','page\ProfileController@view')->name('profile');
 Route::get('/bookEvent/{id}','page\BookeventController@view')->name('booking');
-// Route::post('/bookEvent','page\BookeventController@postBooking')->name('booking');
+Route::post('/bookEvent/{id}','page\BookeventController@postBooking')->name('booking');
 Route::get('/detailSong/{id}','page\DetailsongController@view')->name('detail-song');
 Route::get('/detailType/{id}','page\DetailtypeController@view')->name('detail-categories');
 

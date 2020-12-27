@@ -48,13 +48,22 @@
                     <small class="form-text text-muted d-none">Vui lòng nhập họ tên</small></div>
                 </div>
                 <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá tiền</label></div>
+                <div class="col-12 col-md-9"><input type="text" id="" name="price" value="{{$aa->price}}" class="form-control">
+                    <small class="form-text text-muted d-none">Vui lòng nhập họ tên</small></div>
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh đại diện</label></div>
                     <div class="col-12 col-md-9">
                         <img id="output" src="{{asset('upload/img/img_type')}}/{{ $aa->img }}" width="100" height="100">
-<input name="img_edit" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                        <input name="img_edit" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                         {{-- <input type="file" id="" name="img_edit" class="form-control-file">
                         <img src="{{asset('upload/img/img_admin')}}/{{ $aa->img }}" alt="" height="200px" width="300px"> --}}
                     </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Thời gian</label></div>
+                    <div class="col-12 col-md-9"><input type="datetime-local" id="text-input" name="date" class="form-control">
                 </div>
             @endforeach
         </div>
