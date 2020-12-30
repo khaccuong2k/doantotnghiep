@@ -117,7 +117,9 @@
             <div class="row form-group">
                 <div class="col col-md-3"><label for="file-input" class=" form-control-label">Hình ảnh</label></div>
                 <div class="col-12 col-md-9">
-                    <input type="file" id="" name="imgEdit" class="form-control-file">
+                    {{-- <input type="file" id="" name="imgEdit" class="form-control-file"> --}}
+                    <img id="output" src="{{asset('upload/img/img_song')}}/{{$item->img}}" width="100" height="100">
+<input name="img_edit" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                 {{-- <img src="" alt=""> --}}
                 </div>
             </div>

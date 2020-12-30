@@ -12,7 +12,7 @@
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
 						
 						@if (Auth::check())
-						<a href="{{route('profile')}}" >
+						<a href="{{route('profile',Auth::user()->id)}}" >
 							<span>{{Auth::user()->username}}&ensp;<i class="fa fa-credit-card" aria-hidden="true"></i></span>
 						</a>&emsp;
 						<a href="{{route('logout')}}" >

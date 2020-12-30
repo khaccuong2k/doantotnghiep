@@ -100,8 +100,8 @@
             </div>
             <div class="row form-group">
                 <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                {{-- <div class="col-12 col-md-9"><textarea name="des" id="textarea-input" rows="9" placeholder="Nhập mô tả" class="form-control"></textarea></div> --}}
-                <div id="summernote" name="des"></div>
+                <div class="col-12 col-md-9"><textarea name="des" id="textarea-input" rows="9" placeholder="Nhập mô tả" class="form-control"></textarea></div>
+                {{-- <div id="summernote" name="des"></div> --}}
             </div>
             <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá tiền</label></div>
@@ -112,7 +112,9 @@
             <div class="row form-group">
                 <div class="col col-md-3"><label for="file-input" class=" form-control-label">Hình ảnh</label></div>
                 <div class="col-12 col-md-9">
-                    <input type="file" id="" name="img" class="form-control-file">
+                    {{-- <input type="file" id="" name="img" class="form-control-file"> --}}
+                    <img id="output" src="{{asset('upload/img/img_song/noimg.jpg')}}" width="100" height="100">
+<input name="img" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                 {{-- <img src="" alt=""> --}}
                 </div>
             </div>

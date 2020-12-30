@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="block text-center">
-            <span class="text-white">Chi Tiết Bài Hát</span>
+            <span class="text-white">Bài Hát</span>
             @foreach ($song as $item)
             <h1 class="text-capitalize mb-5 text-lg">{{$item->name}}</h1>
             @endforeach
@@ -47,10 +47,15 @@
                         <h2 class="text-md">{{$item->name}}</h2>
                         @foreach ($singer as $itemm)
                           @if ($itemm->id == $item->id_singer)
-                              <p>Ca sĩ : {{$itemm->name}}</p>
-                              @endif
-                              @endforeach
-                              <p>Lượt nghe : {{$item->views}}</p>
+                            <p>Ca sĩ : {{$itemm->name}}</p>
+                          @endif
+                        @endforeach
+                        @foreach ($musician as $itemm)
+                          @if ($itemm->id == $item->id_musician)
+                            <p>Nhạc sĩ : {{$itemm->name}}</p>
+                          @endif
+                        @endforeach
+                        <p>Lượt nghe : {{$item->views}}</p>
                         <div class="divider my-4"></div>
                         <audio controls>
                             <source src="{{asset('upload/file')}}/{{$item->file}}" type="audio/ogg">
