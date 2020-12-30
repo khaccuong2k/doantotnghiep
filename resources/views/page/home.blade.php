@@ -30,9 +30,9 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-surgeon-alt"></i>
 						</div>
-						<span>Địa chỉ :</span>
+						<span>Sự kiện :</span>
 						<h4 class="mb-3">{{$item->name}}</h4>
-						<p class="mb-4">{{$item->address}}</p>
+						{{-- <p class="mb-4">{{$item->address}}</p> --}}
 						
 					</div>
 				
@@ -54,9 +54,9 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-support"></i>
 						</div>
-						<span>Với sự góp mặt của :</span>
-						<h4 class="mb-3">Ca sĩ :</h4>
-						<p>{{$item->singers}}</p>
+						<span>Địa chỉ :</span>
+						<h4 class="mb-3">{{$item->address}}</h4>
+						{{-- <p>{{$item->singers}}</p> --}}
 						{{-- <p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p> --}}
 					</div>
 					@endforeach

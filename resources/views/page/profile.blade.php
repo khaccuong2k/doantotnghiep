@@ -19,8 +19,16 @@
       <div class="container">
           <div class="row">
             <div class="col-6">
-                Số tiền trong tài khoản của bạn : 787987987 vnđ <br>
-                <a href="" class="btn btn-main-2 btn-icon btn-round-full">Nạp tiền <i class="icofont-simple-right ml-2  "></i></a>
+                @if (session('message'))
+                    <span class="aler aler-danger">
+                        <strong>{{session('message')}}</strong>
+                    </span><br>
+                @endif
+                Số tiền trong tài khoản của bạn : {{number_format(Auth::user()->total_money)}} vnđ <br>
+                <button type="button" class="btn btn-main-2 btn-icon btn-round-full" data-toggle="modal" data-target="#exampleModal">
+                    Nạp tiền
+                </button>
+                {{-- <a href="{{route('addmoney',Auth::user()->id)}}" class="btn btn-main-2 btn-icon btn-round-full">Nạp tiền <i class="icofont-simple-right ml-2  "></i></a> --}}
             </div>
             <div class="col-6">
                 Số tiền đã sử dụng : 69876987987 vnđ.
@@ -30,7 +38,11 @@
           <div class="row">
               <div class="col-lg-4 col-md-6">
                   <div class="doctor-img-block">
-                      <img src="{{asset('novena/images/team/1.jpg')}}" alt="" class="img-fluid w-100">
+                      @if (!empty(Auth::user()->img))
+                        <img src="{{asset('upload/img/img_user')}}/{{Auth::user()->img}}" alt="" class="img-fluid w-100">
+                      @else
+                        <img src="{{asset('upload/img/noimg.jpg')}}" alt="" class="img-fluid w-100">
+                      @endif
   
                       <div class="info-block mt-4">
                           <h4 class="mb-0">{{Auth::user()->username}}</h4>
@@ -49,28 +61,34 @@
   
               <div class="col-lg-8 col-md-6">
                   <div class="doctor-details mt-4 mt-lg-0">
+                        @if (session('messageEdit'))
+                            <span class="aler aler-danger">
+                                <strong>{{session('messageEdit')}}</strong>
+                            </span><br>
+                        @endif
                       <h5 class="text-md">Chỉnh Sửa Hồ Sơ</h5>
                       <div class="divider my-4"></div>
-                      <form>
+                      <form method="post" action="{{route('profile',Auth::user()->id)}}">
+                        @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên Người Dùng</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên người dùng">
+                          <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên người dùng">
                           {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập email">
+                          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập email">
                           {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Mật Khẩu</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+                          <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
                         </div>
                         <div class="form-group">
-                            <img id="output" src="" width="100" height="100">
-                            <input name="img_edit" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                            <img id="output" src="{{asset('upload/img/noimg.jpg')}}" width="100" height="100">
+                            <input name="img" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                         </div>
-                        <button type="submit" class="btn btn-primary">Chinh Sửa</button>
+                        <button type="submit" class="btn btn-main-2 btn-icon btn-round-full">Chỉnh Sửa</button>
                       </form>
                       {{-- <a href="appoinment.html" class="btn btn-main-2 btn-round-full mt-3">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a> --}}
                   </div>
@@ -79,97 +97,34 @@
       </div>
   </section>
   
-        {{-- <section class="section doctor-qualification gray-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="section-title">
-                            <h3>My Educational Qualifications</h3>
-                            <div class="divider my-4"></div>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="edu-block mb-5">
-                            <span class="h6 text-muted">Year(2005-2007) </span>
-                            <h4 class="mb-3 title-color">MBBS, M.D at University of Wyoming</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloremque harum, mollitia, soluta maxime porro veritatis fuga autem impedit corrupti aperiam sint, architecto, error nesciunt temporibus! Vel quod, dolor aliquam!</p>
-                        </div>
-        
-                        <div class="edu-block">
-                            <span class="h6 text-muted">Year(2007-2009) </span>
-                            <h4 class="mb-3 title-color">M.D. of Netherland Medical College</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloremque harum, mollitia, soluta maxime porro veritatis fuga autem impedit corrupti aperiam sint, architecto, error nesciunt temporibus! Vel quod, dolor aliquam!</p>
-                        </div>
-                    </div>
-        
-                    <div class="col-lg-6">
-                        <div class="edu-block mb-5">
-                            <span class="h6 text-muted">Year(2009-2010) </span>
-                            <h4 class="mb-3 title-color">MBBS, M.D at University of Japan</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloremque harum, mollitia, soluta maxime porro veritatis fuga autem impedit corrupti aperiam sint, architecto, error nesciunt temporibus! Vel quod, dolor aliquam!</p>
-                        </div>
-        
-                        <div class="edu-block">
-                            <span class="h6 text-muted">Year(2010-2011) </span>
-                            <h4 class="mb-3 title-color">M.D. of Canada Medical College</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloremque harum, mollitia, soluta maxime porro veritatis fuga autem impedit corrupti aperiam sint, architecto, error nesciunt temporibus! Vel quod, dolor aliquam!</p>
-                        </div>
-                    </div>
-                </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="{{route('addmoney',Auth::user()->id)}}" method="post">
+            @csrf
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Chọn loại thẻ cào nạp tiền</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
-        </section>
-        
-        
-        <section class="section doctor-skills">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <h3>My skills</h3>
-                        <div class="divider my-4"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In architecto voluptatem alias, aspernatur voluptatibus corporis quisquam? Consequuntur, ad, doloribus, doloremque voluptatem at consectetur natus eum ipsam dolorum iste laudantium tenetur.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="skill-list">
-                            <h5 class="mb-4">Expertise area</h5>
-                            <ul class="list-unstyled department-service">
-                                <li><i class="icofont-check mr-2"></i>International Drug Database</li>
-                                <li><i class="icofont-check mr-2"></i>Stretchers and Stretcher Accessories</li>
-                                <li><i class="icofont-check mr-2"></i>Cushions and Mattresses</li>
-                                <li><i class="icofont-check mr-2"></i>Cholesterol and lipid tests</li>
-                                <li><i class="icofont-check mr-2"></i>Critical Care Medicine Specialists</li>
-                                <li><i class="icofont-check mr-2"></i>Emergency Assistance</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="sidebar-widget  gray-bg p-4">
-                            <h5 class="mb-4">Make Appoinment</h5>
-        
-                            <ul class="list-unstyled lh-35">
-                                <li class="d-flex justify-content-between align-items-center">
-                                <a href="#">Monday - Friday</a>
-                                <span>9:00 - 17:00</span>
-                                </li>
-                                <li class="d-flex justify-content-between align-items-center">
-                                <a href="#">Saturday</a>
-                                <span>9:00 - 16:00</span>
-                                </li>
-                                <li class="d-flex justify-content-between align-items-center">
-                                <a href="#">Sunday</a>
-                                <span>Closed</span>
-                                </li>
-                            </ul>
-        
-                            <div class="sidebar-contatct-info mt-4">
-                                <p class="mb-0">Need Urgent Help?</p>
-                                <h3 class="text-color-2">+23-4565-65768</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-body">
+            <div class="form-group">
+                {{-- <label for="">Chọn loại thẻ cào để nạp :</label> --}}
+                <select class="form-control form-control-sm" name="value" id="">
+                <option value="1"> 20 nghìn đồng </option>
+                <option value="2"> 50 nghìn đồng </option>
+                <option value="3"> 100 nghìn đồng </option>
+                <option value="4"> 200 nghìn đồng </option>
+                </select>
             </div>
-        </section> --}}
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Nạp tiền</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
 @endsection
