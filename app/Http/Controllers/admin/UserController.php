@@ -17,19 +17,10 @@ class UserController extends Controller
 
     public function create(Request $req, Users $user)
     {
-        // dd($req->file('imgm'));
         if ($req->file('img')->isValid()) {
-			// File này có thực, bắt đầu đổi tên và move
 			$fileExtension = $req->file('img')->getClientOriginalName(); // Lấy . của file
-			
-			// Thư mục upload
 			$uploadPath = public_path('/upload/img/img_user'); // Thư mục upload
-			
-			// Bắt đầu chuyển file vào thư mục
 			$req->file('img')->move($uploadPath, $fileExtension);
-            
-			// Thành công, show thành công
-			// return redirect()->back()->with('success', 'Upload files thành công!');
 		}
 		else {
 			// Lỗi file
@@ -46,8 +37,6 @@ class UserController extends Controller
             'type_customer' => $req->type_customer,
             'phone' => $req->phone
         ];
-
-        // dd($data);
         $user->create($data);
         return redirect()->route('view-user');
     }
@@ -74,20 +63,11 @@ class UserController extends Controller
     {
         $user = Users::where('id',$id)->first();
         if ($req->has('img_edit')) {
-			// File này có thực, bắt đầu đổi tên và move
 			$fileExtension = $req->file('img_edit')->getClientOriginalName(); // Lấy . của file
-			
-			// Thư mục upload
 			$uploadPath = public_path('/upload/img/img_user'); // Thư mục upload
-			
-			// Bắt đầu chuyển file vào thư mục
 			$req->file('img_edit')->move($uploadPath, $fileExtension);
-            
-			// Thành công, show thành công
-			// return redirect()->back()->with('success', 'Upload files thành công!');
 		}
 		else {
-			// Lỗi file
             $fileExtension = $user->img;
         }
 
@@ -98,11 +78,7 @@ class UserController extends Controller
             'img' => $fileExtension,
             'address' => $req->address_edit
         ];
-
-        // dd($data);
-  
         $user->update($data);
-  
         return redirect()->route('view-user');
     }
 }
