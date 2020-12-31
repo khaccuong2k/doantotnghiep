@@ -19,7 +19,6 @@ class RegisterController extends Controller
     {
         if($req->isMethod('POST'))
         {
-            // dd($req);
             $validate = Validator::make($req->all(),[
                 'username' => 'required|min:5|max:30|alpha',
                 'email' => 'required|email|unique:users,email',
@@ -45,17 +44,6 @@ class RegisterController extends Controller
                                 ->withErrors($validate)
                                 ->withInput();
             }
-            // if($req->hasFile('img'))
-            // {
-            //     $file = $req->file('img');
-            //     $detinationPath = public_path('image/img');
-            //     $fileName = time().'_'.$file->getClientOriginalName();
-            //     $file->move($detinationPath,$fileName);
-            // }
-            // else
-            // {
-            //     $fileName = 'noimg.jpg';
-            // }
             $data = [
                 'username' => $req->username,
                 'email' => $req->email

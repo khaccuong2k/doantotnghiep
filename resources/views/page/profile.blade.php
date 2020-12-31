@@ -31,7 +31,7 @@
                 {{-- <a href="{{route('addmoney',Auth::user()->id)}}" class="btn btn-main-2 btn-icon btn-round-full">Nạp tiền <i class="icofont-simple-right ml-2  "></i></a> --}}
             </div>
             <div class="col-6">
-                Số tiền đã sử dụng : 69876987987 vnđ.
+                Số tiền đã sử dụng : {{number_format(Auth::user()->qty_buy)}} vnđ.
             </div>
           </div>
           <br><br><br><br>
@@ -68,26 +68,38 @@
                         @endif
                       <h5 class="text-md">Chỉnh Sửa Hồ Sơ</h5>
                       <div class="divider my-4"></div>
-                      <form method="post" action="{{route('profile',Auth::user()->id)}}">
+                      <form method="post" action="{{route('profile',Auth::user()->id)}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên Người Dùng</label>
                           <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên người dùng">
+                          @if ($errors->has('username'))
+                            {{$errors->first('username')}}
+                          @endif
                           {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>
                           <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập email">
+                          @if ($errors->has('email'))
+                            {{$errors->first('email')}}
+                          @endif
                           {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Mật Khẩu</label>
-                          <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+                          <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+                          @if ($errors->has('password'))
+                            {{$errors->first('password')}}
+                          @endif
                         </div>
                         <div class="form-group">
-                            <img id="output" src="{{asset('upload/img/noimg.jpg')}}" width="100" height="100">
-                            <input name="img" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-                        </div>
+                          <img id="output" src="{{asset('upload/img/noimg.jpg')}}" width="100" height="100">
+                          <input name="img" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                          @if ($errors->has('img'))
+                            {{$errors->first('img')}}
+                          @endif
+                          </div>
                         <button type="submit" class="btn btn-main-2 btn-icon btn-round-full">Chỉnh Sửa</button>
                       </form>
                       {{-- <a href="appoinment.html" class="btn btn-main-2 btn-round-full mt-3">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a> --}}

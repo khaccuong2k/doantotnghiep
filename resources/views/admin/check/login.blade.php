@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="register-link m-t-15 text-center">
-                            <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                            <p>Bạn chưa có tài khoản ? <a href="{{route('register')}}"> Đăng ký ngay</a></p>
                         </div>
                     </form>
                 </div>

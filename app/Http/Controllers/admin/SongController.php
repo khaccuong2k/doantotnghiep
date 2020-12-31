@@ -123,15 +123,8 @@ class SongController extends Controller
         if ($req->has('imgEdit')) {
 			// File này có thực, bắt đầu đổi tên và move
 			$fileExtension = $req->file('imgEdit')->getClientOriginalName(); // Lấy . của file
-			
-			// Thư mục upload
 			$uploadPath = public_path('/upload/img/img_song'); // Thư mục upload
-			
-			// Bắt đầu chuyển file vào thư mục
 			$req->file('imgEdit')->move($uploadPath, $fileExtension);
-            
-			// Thành công, show thành công
-			// return redirect()->back()->with('success', 'Upload files thành công!');
 		}
 		else {
 			// Lỗi file
