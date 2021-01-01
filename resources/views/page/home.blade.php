@@ -12,7 +12,11 @@
 						<br><br>
 						{{-- <p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p> --}}
 						<div class="btn-container ">
-							<a href="{{route('booking',$item->id)}}" class="btn btn-main-2 btn-icon btn-round-full">Đặt Vé <i class="icofont-simple-right ml-2  "></i></a>
+							@if (Auth::check())
+								<a href="{{route('booking',$item->id)}}" class="btn btn-main-2 btn-icon btn-round-full">Đặt Vé <i class="icofont-simple-right ml-2  "></i></a>
+							@else
+								<a href="{{route('login')}}" class="btn btn-main-2 btn-icon btn-round-full">Đặt Vé <i class="icofont-simple-right ml-2  "></i></a>
+							@endif
 						</div>
 					</div>
 				@endforeach
@@ -32,8 +36,6 @@
 						</div>
 						<span>Sự kiện :</span>
 						<h4 class="mb-3">{{$item->name}}</h4>
-						{{-- <p class="mb-4">{{$item->address}}</p> --}}
-						
 					</div>
 				
 					<div class="feature-item mb-5 mb-lg-0">
@@ -43,10 +45,11 @@
 						<span>Thời gian :</span>
 						<h4 class="mb-3">{{$item->date}}</h4>
 						<ul class="w-hours list-unstyled">
-							<a href="{{route('booking',$item->id)}}" class="btn btn-main btn-round-full">Đặt Vé</a>
-		                    {{-- <li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li> --}}
-		                    {{-- <li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
-		                    <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li> --}}
+							@if (Auth::check())
+								<a href="{{route('booking',$item->id)}}" class="btn btn-main btn-round-full">Đặt Vé <i class="icofont-simple-right ml-2  "></i></a>
+							@else
+								<a href="{{route('login')}}" class="btn btn-main btn-round-full">Đặt Vé <i class="icofont-simple-right ml-2  "></i></a>
+							@endif
 		                </ul>
 					</div>
 				

@@ -20,7 +20,8 @@ class DetailsongController extends Controller
         $song = $songs->where('id',$id)->get();
         $singer = $singers->all();
         $musician = $musicians->all();
+        $songLike = $songs->limit(4)->get();
         // dd($song);
-        return view('page.detailSong',compact('song','singer','musician'));
+        return view('page.detailSong',compact('song','singer','musician','songLike'));
     }
 }
