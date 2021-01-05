@@ -24,14 +24,27 @@
                         <strong>{{session('message')}}</strong>
                     </span><br>
                 @endif
+                <h3>Tài khoản của bạn </h3>
                 Số tiền trong tài khoản của bạn : {{number_format(Auth::user()->total_money)}} vnđ <br>
+                Số tiền đã sử dụng : {{number_format(Auth::user()->qty_buy)}} vnđ.
+                <br><br>
                 <button type="button" class="btn btn-main-2 btn-icon btn-round-full" data-toggle="modal" data-target="#exampleModal">
                     Nạp tiền
                 </button>
                 {{-- <a href="{{route('addmoney',Auth::user()->id)}}" class="btn btn-main-2 btn-icon btn-round-full">Nạp tiền <i class="icofont-simple-right ml-2  "></i></a> --}}
             </div>
             <div class="col-6">
-                Số tiền đã sử dụng : {{number_format(Auth::user()->qty_buy)}} vnđ.
+              <h3>Các Sự Kiện Đã Tham Gia</h3>
+              @foreach ($event as $item)
+                @foreach ($bookEventModel as $itemm)
+                    @if ($item->id == $itemm->id_event && $itemm->id_user == Auth::user()->id)
+                      {{-- @if ($item->name)
+                          
+                      @endif --}}
+                        <p>{{$item->name}}</p>
+                    @endif
+                @endforeach
+              @endforeach
             </div>
           </div>
           <br><br><br><br>

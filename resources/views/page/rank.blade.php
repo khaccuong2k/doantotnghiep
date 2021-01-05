@@ -9,30 +9,24 @@
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Tên bài hát</th>
+                    <th scope="col">Ca sĩ</th>
+                    <th scope="col">Lượt nghe</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                    @foreach ($song as $key => $item)
+                        <tr>
+                            <th scope="row">{{$key + 1 }}</th>
+                            <td>{{$item->name}}</td>
+                            @foreach ($singer as $itemm)
+                                @if ($itemm->id == $item->id_singer)
+                                    <td>{{$itemm->name}}</td>
+                                @endif
+                            @endforeach
+                            <td>{{$item->views}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

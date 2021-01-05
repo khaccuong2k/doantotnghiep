@@ -21,7 +21,8 @@ Route::get('/', function () {return view('welcome');});
 
 Route::get('/contact',function(){return view('page.contact');})->name('contact');
 Route::get('/about',function(){return view('page.about');})->name('about');
-Route::get('/rank',function(){return view('page.rank');})->name('rank');
+Route::post('/search','page\SearchController@view')->name('search');
+Route::get('/rank','page\RankController@view')->name('rank');
 Route::get('/event','page\ContactController@view')->name('event');
 Route::get('/detail','page\DetailController@view')->name('detail');
 Route::get('/profile/{id}','page\ProfileController@view')->name('profile');

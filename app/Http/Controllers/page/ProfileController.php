@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\page;
 
 use App\Http\Controllers\Controller;
+use App\models\BookEventModel;
+use App\Models\Events;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,8 +13,11 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
-    protected function view() {
-        return view('page.profile');
+    protected function view(Events $events,BookEventModel $bookEventModels) {
+        // dd(Auth::check());
+        $event = $events->all();
+        $bookEventModel = $bookEventModels->all();
+        return view('page.profile',compact('event','bookEventModel'));
     }
 
     protected function postEdit(Request $req) {

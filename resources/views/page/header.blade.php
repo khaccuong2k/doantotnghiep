@@ -63,7 +63,8 @@
 		</ul>
 
 		<div class="form__group field">
-			<form action="" method="post">
+			<form action="{{route('search')}}" method="post">
+				@csrf
 				<input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
 				<label for="name" class="form__label">Tìm kiếm...</label>
 			</form>
